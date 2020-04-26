@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using CommonUtils.UnitTest;
 using Microsoft.Extensions.Logging;
 using LeetCodeLab.Solutions.Interface;
@@ -13,8 +14,6 @@ namespace LeetCodeLab.Solutions.ProblemAlphabetBoardPath
     /// </summary>
     public class AlphabetBoardPathSolution : ILeetCodeSolution
     {
-        private readonly string _target;
-
         private ILogger<AlphabetBoardPathSolution> _log;
 
         private IMoveCoordinate _movingMan;
@@ -82,19 +81,27 @@ namespace LeetCodeLab.Solutions.ProblemAlphabetBoardPath
             }
 
             var output = _movingMan.GetDestinyOutPut();
-            _log.LogInformation($"Solution output: {output}");
+            //_log.LogInformation($"Solution output: {output}");
             return output;
         }
 
 
-        public void Execute()
+        public string Execute(string input)
         {
-            AlphabetBoardPath("leet");
-        }
+            string output = "";
+            
+            try 
+            {                 
+                output = AlphabetBoardPath(input);
+            }
+            catch (Exception ex)
+            {
+                _log.LogError($"AlphabetBoardPathSolution - Execute() - Exception: {ex.Message}");
+                return output;
+                throw;
+            }
 
-        public void SetUpTestCase(TestCase testCase)
-        {
-
-        }
+            return output;
+        }     
     }
 }

@@ -6,7 +6,7 @@ namespace LeetCodeLab.Solutions.ProblemAlphabetBoardPath
     {
         private readonly char moveUPSymbol = 'U';
         private readonly char moveDownSymbol = 'D';
-        private readonly char moveLeftSymbol = 'R';
+        private readonly char moveLeftSymbol = 'L';
         private readonly char moveRightSymbol = 'R';
 
         private StringBuilder _stringBuilder;

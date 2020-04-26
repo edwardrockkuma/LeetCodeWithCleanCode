@@ -9,10 +9,18 @@ namespace LeetCodeLab.Solutions.Interface
 {
     public interface ILeetCodeSolution
     {
+        /// <summary>
+        /// Set extra data if needed
+        /// </summary>
+        /// <param name="data"></param>
+        /// <typeparam name="T"></typeparam>
         void SetUpExtraData<T>(T data);
 
-        void SetUpTestCase(TestCase testCase);
-
-        void Execute();
+        /// <summary>
+        /// Execute a Solution main method
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        string Execute(string input);
     }
 }
